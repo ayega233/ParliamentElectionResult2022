@@ -3,4 +3,7 @@
 export(election_result)
 export(election_summary)
 export(showElectionData)
+import(ggplot2)
 import(httr)
+import(maps)
+import(shiny)
