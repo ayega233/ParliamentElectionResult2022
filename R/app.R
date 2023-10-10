@@ -107,8 +107,8 @@ getTableData <- function(data){
   return(table_data)
 }
 
-
-getPlot <- function(data){
+#
+getPlot <- function(data,title=""){
   lst <- sort(sapply(data, function(x) x$andel), index.return=TRUE, decreasing=TRUE)
   names <-sapply(data, function(x) x$partibeteckning)
   results <-sapply(data, function(x) x$andel)
@@ -121,6 +121,7 @@ getPlot <- function(data){
   ))
 
   p <- ggplot2::ggplot(data=plot_data)+ (mapping = aes(x = factor(Party_name, levels = names),y = Vote_percentage ))+coord_flip()+geom_bar(stat="identity",)
+  p <- p+ggplot2::labs(title = title ,x="Party_name",y ="Vote Precentage %")
   p <- p+geom_text(label=plot_data$Vote_percentage,hjust = -1,color="red")+ylim(0,50)+liu_theme
   return(p)
 }
@@ -129,16 +130,17 @@ server <- function(input, output) {
 
   #here output diagram functions
   output$summary_plot <- renderPlot({
-    return(getPlot(election_summary()))
+    return(getPlot(election_summary(),"Summery Of Partiament Election 2022"))
   })
-
+#,paste0("Result of "+input$constituency
   output$summary_data<- renderTable({
     return(getTableData(election_summary()))
   }, rownames = TRUE)
 
   output$county_plot <-renderPlot({
     if (input$constituency != '')  {
-      return(getPlot(election_result(input$constituency)))
+      print(input$valtext)
+      return(getPlot(election_result(input$constituency),paste("Result of ",input$constituency)))
     }
   })
 
