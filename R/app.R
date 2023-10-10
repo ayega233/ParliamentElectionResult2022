@@ -63,14 +63,16 @@ ui <- fluidPage(
       tabPanel("Data",
                selectInput("data_constituency", "Select Parliamentary Constituency:",
                            sweden_counties),
-               tableOutput("county_data"),
+               tableOutput("county_data")
       ),
       tabPanel(
         "Reference",
         tags$p(
-          "There data were obtained from",
-          tags$a("IMDB", href = "http://www.imdb.com/"), "and",
-          tags$a("Rotten Tomatoes", href = "https://www.rottentomatoes.com/"), "."
+          "After each election the Swedish election agency (Valmyndigheten) release a detailed file and get data from this site.",
+          tags$a("Valmyndigheten site jason object from ", href = "https://resultat.val.se/assets/valdata/val2022/RD_00_S_mandat.json"), "and",
+          "Get idea about how to analyse election data from ",
+          tags$a("valresultat", href = "https://www.val.se/valresultat/riksdag-region-och-kommun/2022/radata-och-statistik.html"), "and Get details about shiny application from",
+          tags$a("Shiny", href="https://shiny.posit.co/r/reference/shiny/1.7.0/selectinput"),"."
         )
       )
     )
@@ -139,7 +141,6 @@ server <- function(input, output) {
 
   output$county_plot <-renderPlot({
     if (input$constituency != '')  {
-      print(input$valtext)
       return(getPlot(election_result(input$constituency),paste("Result of ",input$constituency)))
     }
   })
