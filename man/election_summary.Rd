@@ -6,9 +6,9 @@
 \usage{
 election_summary()
 }
-\arguments{
-\item{county_code}{A character string representing the county code.}
+\value{
+result the parties list and results
 }
 \description{
-Summarize the Swedish parliamentary election results in 2022 in a user-friendly interface
+Get election result data in sweden in 2022
 }
