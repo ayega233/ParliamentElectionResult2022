@@ -1,0 +1,73 @@
+---
+title: "Summarize the Swedish parliamentary election results in 2022 in a user-friendly interface"
+author: "Chandika Nishshanka & Ayesha Gamage"
+data: "'r.sys.date()'"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ParliamentElectionResult2022)
+```
+## Introduction
+
+The Swedish parliamentary elections in 2022 have produced a wealth of data that is vital for understanding the political landscape and trends. To make this information more accessible and user-friendly, we have developed a specialized tool using R package with Shiny App that allows you to easily summarize and analyze the election results.
+
+## Package Overview
+
+The package provides three primary functions:
+
+1. `election_summary`: This function retrieves summary data for the entire country's parliamentary election results in 2022. It offers a high-level overview of the election outcomes.
+
+2. `election_result`: With this function, you can obtain detailed election results for a specific county by specifying its county code as an input parameter.
+
+3. `showElectionData`: This function launches a Shiny application that facilitates interactive exploration and analysis of the election data.
+
+In the following sections, we will delve into each function's usage and demonstrate how to extract valuable insights from the Swedish parliamentary election results.
+
+## Function: `election_summary`
+
+The `election_summary` function provides a quick summary of the 2022 parliamentary election results for the entire country. It aggregates data related to party votes, allowing you to get a broad view of the election outcome.
+
+
+
+### Example usage of election_summary
+```r
+summary_data <- election_summary()
+```
+
+### Example usage of election_result
+```r
+county_code <- "01"  # Replace with the desired county code
+county_data <- election_result(county_code)
+```
+
+### Example usage of showElectionData
+```r
+showElectionData()
+```
+## Features
+
+The Shiny app consists of the following key features:
+
+1. **Summary Tab:** Provides a high-level summary of the election results for the entire country, including a bar chart displaying the top parties and a table with relevant statistics.
+
+2. **Graph Tab:** Allows users to select a specific parliamentary constituency from a dropdown menu and view a bar chart representing the election results for that constituency.
+
+3. **Data Tab:** Similar to the Graph tab, this tab allows users to select a parliamentary constituency and view detailed data in tabular format.
+
+4. **Reference Tab:** Offers additional information and references to the data sources.
+
+## Conclusion
+
+The "Swedish Parliamentary Election 2022 Shiny App" offers a convenient and interactive way to explore and analyze the election results.

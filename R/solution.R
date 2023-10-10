@@ -1,8 +1,9 @@
+#'Summarize the Swedish parliamentary election results in 2022 in a user-friendly interface
 #' @import httr
 #' @import shiny
 #' @import ggplot2
 #' @import maps
-
+#' @param county_code A character string representing the county code.
 
 
 #' @export election_summary

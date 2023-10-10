@@ -1,16 +1,22 @@
 Package: ParliamentElectionResult2022
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Summarize the Swedish parliamentary election results in 2022 in a user-friendly
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: person1("Ayesha", "Gamage", email = "ayega981@student.liu.se",role = c(student))
+        person2("Chandika","Nishshanka,"email=chahe114@student.liu.se","role=student" )
+Maintainer: The package maintainer <ayega981@student.liu.se>
+Description: The Swedish parliamentary elections in 2022 have produced a wealth of data 
+             that is vital for understanding the political landscape and trends. To make
+             this information more accessible and user-friendly, we have developed a 
+             specialized tool using R package with Shiny App that allows you to easily 
+             summarize and analyze the election results.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends:
@@ -19,3 +25,4 @@ Depends:
   ggplot2,
   maps,
   httr
+VignetteBuilder: knitr
